@@ -32,6 +32,13 @@ body {
   display: inline-block;
   flex-grow: 1
 }
+
+.task-lable {
+  width: 56%;
+  display: inline-block;
+  flex-grow: 1
+}
+
 .task-wrapper {
   display: flex;
 }
