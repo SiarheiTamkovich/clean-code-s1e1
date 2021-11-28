@@ -41,7 +41,6 @@ var createNewTaskElement = function(taskString) {
 }
 
 var addTask=function(){
-//    console.log("Add Task...");
   if (!taskInput.value) return;
   var listItem = createNewTaskElement(taskInput.value);
 
@@ -52,48 +51,42 @@ var addTask=function(){
 }
 
 var editTask = function(){
-//    console.log("Edit Task...");
-    var listItem = this.parentNode;
-    var editInput = listItem.querySelector('input[type=text]');
-    var label = listItem.querySelector("label");
-    var editBtn = listItem.querySelector(".section__button_edit");
-    var containsClass = listItem.classList.contains("section__task_edit");
+  var listItem = this.parentNode;
+  var editInput = listItem.querySelector('input[type=text]');
+  var label = listItem.querySelector("label");
+  var editBtn = listItem.querySelector(".section__button_edit");
+  var containsClass = listItem.classList.contains("section__task_edit");
 
-    if (containsClass) {
-      label.innerText = editInput.value;
-      editBtn.innerText = "Edit";
-    } else {
-      editInput.value = label.innerText;
-      editBtn.innerText = "Save";
-    }
+  if (containsClass) {
+    label.innerText = editInput.value;
+    editBtn.innerText = "Edit";
+  } else {
+    editInput.value = label.innerText;
+    editBtn.innerText = "Save";
+  }
 
   listItem.classList.toggle("section__task_edit");
 };
 
 var deleteTask=function(){
-//    console.log("Delete Task...");
   var listItem = this.parentNode;
   var ul = listItem.parentNode;
   ul.removeChild(listItem);
 }
 
 var taskCompleted = function() {
- //   console.log("Complete Task...");
   var listItem=this.parentNode;
   completedTasksHolder.appendChild(listItem);
   bindTaskEvents(listItem, taskIncomplete);
-
 }
 
 var taskIncomplete=function(){
-//   console.log("Incomplete Task...");
   var listItem=this.parentNode;
   incompleteTaskHolder.appendChild(listItem);
   bindTaskEvents(listItem,taskCompleted);
 }
 
 var ajaxRequest = function(){
-//    console.log("AJAX Request");
 }
 
 addButton.onclick = addTask;
@@ -102,7 +95,6 @@ addButton.addEventListener("click",ajaxRequest);
 
 
 var bindTaskEvents=function(taskListItem,checkBoxEventHandler){
-//    console.log("bind list item events");
   var checkBox = taskListItem.querySelector(".section__check");
   var editButton = taskListItem.querySelector(".section__button_edit");
   var deleteButton = taskListItem.querySelector(".section__button_delete");
